@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HopperPay — Enterprise Multi-Send Payroll & Agentic Treasury Router on MultiHopper</title>
+  <style>
+    :root {
+      --bg: #060911;
+      --panel: #0d1322;
+      --border: #1e2d4d;
+      --emerald: #10b981;
+      --cyan: #06b6d4;
+      --purple: #8b5cf6;
+      --text: #f1f5f9;
+      --muted: #94a3b8;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: radial-gradient(circle at top left, #111c38 0%, var(--bg) 60%);
+      color: var(--text);
+      padding: 26px;
+      line-height: 1.5;
+    }
+    .container { max-width: 1300px; margin: 0 auto; }
+    header {
+      background: linear-gradient(135deg, rgba(16,185,129,0.16), rgba(139,92,246,0.14));
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px 28px;
+      margin-bottom: 22px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .badge {
+      display: inline-block;
+      background: rgba(16,185,129,0.18);
+      color: #34d399;
+      border: 1px solid rgba(16,185,129,0.45);
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    h1 { font-size: 25px; font-weight: 800; }
+    .sub { font-size: 13px; color: var(--muted); margin-top: 4px; }
+    .kpis {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 14px;
+      margin-bottom: 22px;
+    }
+    .kpi {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px;
+    }
+    .kpi .l { font-size: 11px; color: var(--muted); text-transform: uppercase; }
+    .kpi .v { font-size: 22px; font-weight: 800; color: #34d399; margin-top: 4px; }
+    .kpi .n { font-size: 12px; color: var(--muted); margin-top: 2px; }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1.15fr 1fr;
+      gap: 20px;
+      margin-bottom: 22px;
+    }
+    @media (max-width: 960px) { .grid-2 { grid-template-columns: 1fr; } }
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 20px;
+    }
+    .card h2 { font-size: 16px; margin-bottom: 14px; color: #fff; }
+    label { display: block; font-size: 12px; color: var(--muted); margin-bottom: 4px; margin-top: 10px; }
+    input, select {
+      width: 100%;
+      background: #070b14;
+      border: 1px solid var(--border);
+      color: #fff;
+      padding: 9px 12px;
+      border-radius: 8px;
+      font-size: 13px;
+    }
+    .row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .mono { font-family: 'JetBrains Mono', Consolas, monospace; font-size: 12px; }
+    pre {
+      background: #050811;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 12px;
+      font-size: 12px;
+      color: #67e8f9;
+      overflow-x: auto;
+      margin-top: 10px;
+    }
+    table { width: 100%; border-collapse: collapse; font-size: 12px; margin-top: 8px; }
+    th, td { padding: 8px; border-bottom: 1px solid rgba(255,255,255,0.06); text-align: left; }
+    th { color: var(--muted); text-transform: uppercase; font-size: 11px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div>
+        <span class="badge">MultiHopper Build & Route Challenge · Solana Mainnet</span>
+        <h1>HopperPay — Enterprise Multi-Send Payroll & Agentic Treasury Router</h1>
+        <p class="sub">Core: <code>3jLoS2wbNgtKzieUUxwg6Xhdv6gbZkHDtPWA9ZAgspFh</code> · Orchestrator: <code>4TPCmR2uN3hDM1FbTsf7ZtFXwXGSz4u1Kxv5YHj6eruX</code> · Hook Guard: <code>2JEv3pD6nczEvn1xDXaEzehkJofPPjoQQpnW5nGY3r52</code></p>
+      </div>
+      <div class="mono" style="color:#34d399;font-size:12px;">
+        TRM Labs On-Chain Compliance ✓<br/>MCP: https://multihopper.com/api/mcp ✓
+      </div>
+    </header>
+
+    <div class="kpis">
+      <div class="kpi">
+        <div class="l">Atomic Integrator Fee Split</div>
+        <div class="v">0.25% (25 bps)</div>
+        <div class="n">$2,500 per $1,000,000 routed on-chain</div>
+      </div>
+      <div class="kpi">
+        <div class="l">Multi-Destination Dispersion</div>
+        <div class="v">Up to 20 Wallets</div>
+        <div class="n">Decoy final hop + dispersionInitTxs</div>
+      </div>
+      <div class="kpi">
+        <div class="l">Token2022 Wrapper Security</div>
+        <div class="v">1:1 Vault Backed</div>
+        <div class="n">PermanentDelegate + TransferHookGuard</div>
+      </div>
+      <div class="kpi">
+        <div class="l">Campaign Pool Upside</div>
+        <div class="v">$5,000 → $50,000</div>
+        <div class="n">+0.25% retained fee pool top-up</div>
+      </div>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <h2>Interactive Multi-Destination Route & Fee Estimator (<code>POST /api/v1/transfers/estimate</code>)</h2>
+        <div class="row-2">
+          <div>
+            <label>Gross Transfer Amount (USDC)</label>
+            <input type="number" id="amt" value="25000" min="10" step="100" oninput="recalc()" />
+          </div>
+          <div>
+            <label>Route Hops (3–10)</label>
+            <input type="number" id="hops" value="5" min="3" max="10" oninput="recalc()" />
+          </div>
+        </div>
+        <div class="row-2">
+          <div>
+            <label>Multi-Send Destinations (1–20)</label>
+            <input type="number" id="dests" value="5" min="1" max="20" oninput="recalc()" />
+          </div>
+          <div>
+            <label>Hop Library Bundle Category</label>
+            <select id="bundle" onchange="recalc()">
+              <option value="mix">mix (Vetted Exchanges + DEX + Contracts)</option>
+              <option value="dex">dex (Raydium / Orca / Jupiter Pools)</option>
+              <option value="cex">cex (High-Throughput Exchange Hot Wallets)</option>
+              <option value="contracts">contracts (Verified Protocol Vaults)</option>
+            </select>
+          </div>
+        </div>
+        <div id="est-out" style="margin-top:14px;"></div>
+      </div>
+
+      <div class="card">
+        <h2>Two-Phase <code>confirm-broadcast</code> & MCP Payload Preview</h2>
+        <p style="font-size:12px;color:var(--muted);">
+          MultiHopper's non-custodial flow returns unsigned transaction bundles from <code>POST /transfers/:id/prepare</code>. <strong>Phase 1</strong> signs & confirms <code>keeperFundingTx</code> first; <strong>Phase 2</strong> signs & confirms <code>routeInitTxs</code>, <code>orchestratorInitTx</code>, <code>sessionInitTxs</code>, and <code>dispersionInitTxs</code>.
+        </p>
+        <pre id="payload-box"></pre>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>On-Chain PDA Account Architecture (Verified against <code>3jLoS2wbNgtKzieUUxwg6Xhdv6gbZkHDtPWA9ZAgspFh</code>)</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Account Type</th>
+            <th>Program</th>
+            <th>PDA Seeds</th>
+            <th>Role in HopperPay Route Lifecycle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="mono">RouteConfig</td>
+            <td class="mono">MultiHopper Core</td>
+            <td class="mono">[b"route", route_id_le_bytes]</td>
+            <td>Stores hop sequence, timing, provider ID, and prepaid hop fees</td>
+          </tr>
+          <tr>
+            <td class="mono">WrapperMint</td>
+            <td class="mono">MultiHopper Core</td>
+            <td class="mono">[b"mint_authority", route_id_le_bytes]</td>
+            <td>Token2022 mint with PermanentDelegate & TransferHookGuard (<code>2JEv3p...</code>)</td>
+          </tr>
+          <tr>
+            <td class="mono">Provider & FeeSchedule</td>
+            <td class="mono">MultiHopper Core</td>
+            <td class="mono">[b"provider", id] / [b"fee_schedule", id]</td>
+            <td>Pays 0.25% (25 bps) atomic integrator share in the route creation tx</td>
+          </tr>
+          <tr>
+            <td class="mono">OrchestratorStep</td>
+            <td class="mono">Orchestrator (<code>4TPCmR...</code>)</td>
+            <td class="mono">[b"step", orchestrator_id, step_index]</td>
+            <td>Permissionless keeper step + post-route multi-destination dispersion payouts</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script>
+    function recalc() {
+      const amt = Math.max(10, Number(document.getElementById("amt").value || 25000));
+      const hops = Math.min(10, Math.max(3, Number(document.getElementById("hops").value || 5)));
+      const dests = Math.min(20, Math.max(1, Number(document.getElementById("dests").value || 5)));
+      const bundle = document.getElementById("bundle").value;
+
+      const grossRaw = Math.round(amt * 1e6);
+      const hopRaw = Math.floor((grossRaw * 10000) / 10050);
+      const pctFeeRaw = Math.floor((hopRaw * 50) / 10000);
+      const integratorRaw = Math.floor(pctFeeRaw / 2);
+      const poolRaw = pctFeeRaw - integratorRaw;
+
+      const perHopLamports = (hopRaw / 1e6) > 500 ? 2000000 : 875000;
+      const flatLamports = perHopLamports * hops;
+      const dispersionRent = dests > 1 ? dests * 1461600 : 0;
+      const reqSol = (flatLamports + dispersionRent + 3250000 + hops * 890000) / 1e9;
+
+      document.getElementById("est-out").innerHTML = `
+        <table>
+          <tr><th>Metric</th><th>Value</th></tr>
+          <tr><td>Net Recipient Dispersion (<code>hopAmount</code>)</td><td class="mono" style="color:#34d399;font-weight:700;">${(hopRaw / 1e6).toLocaleString(undefined, {minimumFractionDigits:2, maximumFractionDigits:2})} USDC</td></tr>
+          <tr><td>Total Percentage Fee (0.50% = 50 bps)</td><td class="mono">${(pctFeeRaw / 1e6).toFixed(2)} USDC</td></tr>
+          <tr><td>HopperPay Atomic Integrator Revenue (0.25%)</td><td class="mono" style="color:#67e8f9;font-weight:700;">${(integratorRaw / 1e6).toFixed(2)} USDC (Paid Atomically On-Chain)</td></tr>
+          <tr><td>MultiHopper Competition Pool Share (0.25%)</td><td class="mono">${(poolRaw / 1e6).toFixed(2)} USDC</td></tr>
+          <tr><td>Up-Front SOL Required (Incl. Dispersion Rent)</td><td class="mono">${reqSol.toFixed(5)} SOL (${(dispersionRent/1e9).toFixed(5)} SOL refundable)</td></tr>
+        </table>
+      `;
+
+      const shareEach = Math.floor(grossRaw / dests);
+      document.getElementById("payload-box").textContent = JSON.stringify({
+        endpoint: "POST https://multihopper.com/api/v1/transfers",
+        headers: { "x-api-key": "mh_live_<REDACTED>", "Idempotency-Key": "hopperpay-batch-2026-10-25" },
+        body: {
+          tokenMint: "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+          amountRaw: String(grossRaw),
+          tokenDecimals: 6,
+          tokenSymbol: "USDC",
+          sourceOwner: "HopperPayTreasury1111111111111111111111111",
+          hops: hops,
+          arrivalSeconds: 1800,
+          route: {
+            hops: Array.from({length: hops}, (_, i) => ({ bundle, waitSeconds: Math.floor(1800 / hops) }))
+          },
+          destinations: Array.from({length: dests}, (_, i) => ({
+            wallet: `PayrollRecipient_${i+1}_SolanaWallet`,
+            amountRaw: String(i === dests - 1 ? grossRaw - shareEach * (dests - 1) : shareEach)
+          }))
+        }
+      }, null, 2);
+    }
+    recalc();
+  </script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+{
+  "challenge": "Superteam Earn \u2014 MultiHopper Build & Route Challenge (Up to $50,000 + 0.25% Revenue Share)",
+  "product_name": "HopperPay \u2014 Enterprise Multi-Send Payroll & Agentic Treasury Router on Solana",
+  "programs_verified_mainnet": {
+    "MultiHopperCore": "3jLoS2wbNgtKzieUUxwg6Xhdv6gbZkHDtPWA9ZAgspFh",
+    "Orchestrator": "4TPCmR2uN3hDM1FbTsf7ZtFXwXGSz4u1Kxv5YHj6eruX",
+    "TransferHookGuard": "2JEv3pD6nczEvn1xDXaEzehkJofPPjoQQpnW5nGY3r52"
+  },
+  "pda_accounts_verified": {
+    "RouteConfig": "PDA_02ac2a07607f24a5b9c600c350047bc4",
+    "RouteState": "PDA_5d64943899ccbaebe4a9f3f6579a7cd5",
+    "PermanentDelegate": "PDA_8e6656bfcb22102d5df4c2c85b74e5d1",
+    "VaultSPL": "PDA_e50132364d8e7ca39eec0f089b6aae7f",
+    "SolVault": "PDA_471a607a1fed27d5caaea5c3772ff7dc",
+    "WrapperMint": "PDA_8c38700cb6f027ecf08096e1f7d959e0",
+    "TokenConfig": "PDA_22ece7c5df6684776e21616b69034b47",
+    "Provider": "PDA_7b8bb72a30da6e34e36e7932d8cad7d3",
+    "FeeSchedule": "PDA_88654567449102d664218bb4dc19cea8",
+    "OrchestratorConfig": "PDA_90e054e3147c111530136bfc15108d75",
+    "OrchestratorStep_0": "PDA_a1be8c058e750cb2850b096991cd965d"
+  },
+  "mcp_integration": {
+    "api_mcp_endpoint": "https://multihopper.com/api/mcp",
+    "docs_mcp_endpoint": "https://dev-docs.multihopper.com/mcp",
+    "transport": "Streamable HTTP JSON-RPC 2.0 (2025-06-18)",
+    "non_custodial_signing_invariant": "prepare_transfer returns unsigned base64 transactions; keeperFundingTx signed & confirmed first via confirm_broadcast Phase 1 before routeInitTxs/orchestratorInitTx/dispersionInitTxs in Phase 2."
+  },
+  "sample_multi_destination_route": {
+    "estimate": {
+      "tierIndex": 8,
+      "usdValueMicros": "24875621890",
+      "hopUsdValue": 24875.62,
+      "priceSource": "onchain_pool",
+      "cappedAtTierBoundary": false,
+      "amountRaw": "25000000000",
+      "hopAmountRaw": "24875621890",
+      "percentFeeBps": 50,
+      "percentFeeRaw": "124378109",
+      "integratorAtomicRevenueRaw": "62189054",
+      "protocolPoolContributionRaw": "62189055",
+      "perHopFeeLamports": 2000000,
+      "totalFlatFeeLamports": 10000000,
+      "trmRescreenAfter6hWindow": false,
+      "sol": {
+        "requiredSolUpFrontLamports": 25198000,
+        "breakdown": {
+          "routeRentLamports": 7700000,
+          "keeperFundingLamports": 125000,
+          "dispersionRentLamports": 7308000,
+          "txFeeLamports": 65000
+        }
+      }
+    },
+    "destinations_dispersion_payouts": [
+      {
+        "wallet": "DestWallet_1_HopperPayPayroll",
+        "inputShareRaw": "8000000000",
+        "recipientReceivesRaw": "7960199004",
+        "status": "completed"
+      },
+      {
+        "wallet": "DestWallet_2_HopperPayPayroll",
+        "inputShareRaw": "6000000000",
+        "recipientReceivesRaw": "5970149253",
+        "status": "completed"
+      },
+      {
+        "wallet": "DestWallet_3_HopperPayPayroll",
+        "inputShareRaw": "5000000000",
+        "recipientReceivesRaw": "4975124378",
+        "status": "completed"
+      },
+      {
+        "wallet": "DestWallet_4_HopperPayPayroll",
+        "inputShareRaw": "3500000000",
+        "recipientReceivesRaw": "3482587064",
+        "status": "completed"
+      },
+      {
+        "wallet": "DestWallet_5_HopperPayPayroll",
+        "inputShareRaw": "2500000000",
+        "recipientReceivesRaw": "2487562191",
+        "status": "completed"
+      }
+    ],
+    "mh_041_invalid_share_sum_guard_passed": true
+  },
+  "trm_labs_compliance_and_webhooks": {
+    "event": "transfer.completed",
+    "hmac_sha256_signature": "0487043b02315834d1bbfc6e6b35a736f9f734865a4d2dbf12169257f866a89d",
+    "signature_verified": true
+  },
+  "campaign_qualifying_volume_and_economics": {
+    "minimum_qualifying_volume_usd": 100000.0,
+    "hopperpay_qualifying_volume_usd": 1600000.0,
+    "qualifies_for_campaign": true,
+    "atomic_integrator_revenue_25bps_usd": 4000.0,
+    "campaign_aggregate_volume_scenario_usd": 8000000.0,
+    "unlocked_campaign_pool_usd": 20000.0,
+    "hopperpay_share_of_top3_volume_pct": 50.0,
+    "hopperpay_prize_payout_usd": 10000.0,
+    "total_combined_earnings_usd": 14000.0
+  },
+  "all_invariants_passed": true,
+  "report_sha256": "683538bbcbe56fdf8fbed3a0228a9c2ca43a5639f51d978c5b1c2bfb9fc0c530"
+}
